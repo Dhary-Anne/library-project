@@ -1,10 +1,10 @@
 :root{
-    --silver: 
-    --dark:
-    --light-grey:
-    --white:
-    --main-text-color: 
-    --submit-button: 
+    --light-grey: #D3D3D3;
+    --dark-grey: #404040;
+    --button-color: #9da7a0;
+    --main-text-color: #050505;
+    --add-button: #525E52;
+    --submit-button: #AED591;
 }
 
 *,
@@ -22,29 +22,82 @@ h1{
 body{
     max-height: 100vh;
     text-align: center;
+    background-color: var(--button-color);
+    position: relative;
 }
 
 .add-button{
     margin: 50px;
     font-size: 2rem;
-    border: none;
+    border: 0.5px solid black;
+    padding: 8px;
+    width: 150px;
+    height: 100px;
+    font-size: 3.5rem;
+    border-radius: 60%;
 }
 
 .add-button:hover{
-    background-color: darkgray;
+    background-color: var(--add-button);
+    transform: scale(1.2);
+}
+.book-layout{
+    position: relative;
 }
 
 #bookForm{
-   display: grid;
+   display: none;
+   gap: 8px;
    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-   padding: 15px;
-   position: relative;
-   left: 15vw;
+   padding: 20px;
+   left: 40vw;
    border: 4px;
    width: 300px;
+   height: 340px;
+   position: relative;
+   justify-self: center;
    justify-content: center;
-   align-items: center;
+   justify-self: center;
+   bottom: 25px;
+   background-color: var(--light-grey);
+   border-radius: 8px;
+   transition: 0.3s ease-in-out;
 }
+
+#bookForm.show{
+    display: grid;
+}
+
+
 input{
     display: block;
+    width: 220px;
+}
+
+.submitBook{
+    background-color: whitesmoke;
+}
+
+.submitBook:hover{
+    background: var(--submit-button);
+}
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    justify-self: space-between;
+    font-size: 16px;
+    gap: 4px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--light-grey);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    line-height: 1.2;
+}
+
+.book-layout{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
 }

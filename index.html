@@ -11,15 +11,15 @@
 <body>
     <h1>My Library 📖</h1>
     <hr>
-    <button type="button" class="add-button">+ Add book</button>
+    <button type="button" class="add-button">+</button>
     <div id="add-book-card" data-book-card>
-        <form action="#" id="bookForm" class="show">
+    <div class="book-layout" id="bookLayout"></div>
+        <form action="#" id="bookForm">
             <h3>Add new book</h3>
             <input type="text" id="bookTitle" placeholder="Title..." name="bookTitle" maxlength="60" required>
             <input type="text" id="bookAuthor" placeholder="Author..." name="bookAuthor" required>
             <input type="number" min="1" max="5000" id="pageCount" placeholder="Page Count..." name="pageCount" required>
-            <label for="readBook" id="readBook">Did you read it?</label>
-            <input type="checkbox" id="readBook" name="read" value="yes">
+            <label for="readBook" id="readBook">Did you read it?</label><input type="checkbox" id="readBook" name="read" value="yes">
             <button type="submit" class="submitBook">Add to Library</button>
         </form>
     </div>
