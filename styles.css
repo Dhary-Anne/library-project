@@ -1,10 +1,10 @@
 :root{
-    --light-grey: #BECEE5;
-    --dark-grey: #404040;
-    --button-color: #9da7a0;
-    --main-text-color: #050505;
-    --add-button: #525E52;
+    --light-green: #819a80;
+    --dark-green: #1c4919;
+    --white: #F2F3F4;
+    --light-grey: #F6F4F5;
     --submit-button: #AED591;
+    --not-read: #EA4C46;
 }
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Titillium+Web:ital,wght@1,200;1,600&display=swap');
 
@@ -19,10 +19,12 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-color: var(--light-green);
 }
 .header{
     width: 100vw;
-    background-color: var(--button-color);
+    height: 15vh;
+    background-color: var(--dark-green);
     font-family: 'Titillium Web', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -42,14 +44,22 @@ body{
     right: 5%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+.close{
+    position: absolute;
+    font-size: 1.8rem;
+    float: right;
+    bottom: 408px;
+    right: 8px;
+    border: none;
+    color: var(--dark-green);
+}
 .add-button:hover{
     transform: scale(1.2);
-    transform: rotate(90deg)
-
+    transform: rotate(90deg);
 }
 h2{
     height: 10vh;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-left: 30px;
     color: white;
     font-size: 2.5rem;
@@ -59,6 +69,7 @@ h2{
     position: relative;
 }
 .book-form{
+    display: none;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 10px;
@@ -71,16 +82,19 @@ h2{
     justify-content: center;
     justify-self: center;
     bottom: 6px;
-    background-color: var(--light-grey);
+    background-color: var(--white);
     opacity: .9;
     border-radius: 8px;
     transition: 0.3s ease-in-out;  
-    font-family: 'Titillium Web', sans-serif;;
+    font-family: 'Titillium Web', sans-serif;
+}
+.book-form.show{
+    display: block;
 }
 .book-form p{
     padding-bottom: 20px;
     font-size: 2.5rem;
-    color: white;
+    color: var(--dark-green);
 }
 input{
     display: block;
@@ -90,25 +104,21 @@ input{
     margin-bottom: 6px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #F2F3F4;
-}
-label[for="title"],
-label[for="author"],
-label[for="pages"]{
-    text-align: left;
-    align-items: left;
 }
 
 
 label{
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-left: 0;
+    color: var(--dark-green);
     text-align: left;
+    display: inline-block;
+    float: left;
+    margin-left: 14px;
 }
 #book-read{
     margin-top: 10px;
     width: 300px;
-    text-align: center;
     font-size: 1.1rem;
 }
 #submit-book{
@@ -117,4 +127,19 @@ label{
     border-radius: 4px;
     width: 300px;
     font-size: 1.2rem;
+    background-color: lightblue;
+    opacity: .6;
+    cursor: pointer;
+    color: black;
 }
+.book-shelf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    max-width: 1000;
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    margin: 2rem;
+  }
