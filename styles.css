@@ -1,11 +1,12 @@
 :root{
-    --light-grey: #D3D3D3;
+    --light-grey: #BECEE5;
     --dark-grey: #404040;
     --button-color: #9da7a0;
     --main-text-color: #050505;
     --add-button: #525E52;
     --submit-button: #AED591;
 }
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Titillium+Web:ital,wght@1,200;1,600&display=swap');
 
 *,
 *::before,
@@ -14,96 +15,106 @@
     padding: 0;
     margin: 0;
 }
-
-h1{
-    padding: 30px;
-}
-
 body{
-    max-height: 100vh;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.header{
+    width: 100vw;
     background-color: var(--button-color);
-    position: relative;
+    font-family: 'Titillium Web', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
 .add-button{
-    margin: 50px;
-    font-size: 2rem;
-    border: 0.5px solid black;
-    padding: 8px;
-    width: 150px;
-    height: 100px;
-    font-size: 3.5rem;
-    border-radius: 60%;
+    border: none;
+    outline: none;
+    font-size: 2.2rem;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    background: lightblue;
+    transition: 0.5s ease;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.add-button:hover{
+    transform: scale(1.2);
+    transform: rotate(90deg)
+
+}
+h2{
+    height: 10vh;
+    padding-top: 20px;
+    padding-left: 30px;
+    color: white;
+    font-size: 2.5rem;
 }
 
-.add-button:hover{
-    background-color: var(--add-button);
-    transform: scale(1.2);
-}
-.book-layout{
+.form-container{
     position: relative;
 }
-
-#bookForm{
-   display: none;
-   gap: 8px;
-   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-   padding: 20px;
-   left: 40vw;
-   border: 4px;
-   width: 300px;
-   height: 340px;
-   position: relative;
-   justify-self: center;
-   justify-content: center;
-   justify-self: center;
-   bottom: 25px;
-   background-color: var(--light-grey);
-   border-radius: 8px;
-   transition: 0.3s ease-in-out;
+.book-form{
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px;
+    left: 40vw;
+    border: 4px;
+    width: 350px;
+    height: 450px;
+    position: relative;
+    justify-self: center;
+    justify-content: center;
+    justify-self: center;
+    bottom: 6px;
+    background-color: var(--light-grey);
+    opacity: .9;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;  
+    font-family: 'Titillium Web', sans-serif;;
 }
-
-#bookForm.show{
-    display: grid;
+.book-form p{
+    padding-bottom: 20px;
+    font-size: 2.5rem;
+    color: white;
 }
-
-
 input{
     display: block;
-    width: 220px;
+    width: 300px;
+    height: 35px;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F2F3F4;
+}
+label[for="title"],
+label[for="author"],
+label[for="pages"]{
+    text-align: left;
+    align-items: left;
 }
 
-.submitBook{
-    background-color: whitesmoke;
-}
 
-.submitBook:hover{
-    background: var(--submit-button);
+label{
+    font-size: 1rem;
+    margin-left: 0;
+    text-align: left;
 }
-
-.book-card{
-    display: flex;
-    flex-direction: column;
-    justify-self: space-between;
-    font-size: 16px;
-    gap: 4px;
+#book-read{
+    margin-top: 10px;
+    width: 300px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+#submit-book{
     padding: 10px;
-    border-radius: 8px;
-    background-color: var(--light-grey);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    line-height: 1.2;
-}
-
-.book-layout{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.btns{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 1.2rem;
 }
