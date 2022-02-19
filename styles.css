@@ -83,7 +83,6 @@ h2{
     justify-self: center;
     bottom: 6px;
     background-color: var(--white);
-    opacity: .9;
     border-radius: 8px;
     transition: 0.3s ease-in-out;  
     font-family: 'Titillium Web', sans-serif;
@@ -104,6 +103,7 @@ input{
     margin-bottom: 6px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1.5rem;
 }
 
 
@@ -126,15 +126,35 @@ label{
     margin-top: 20px;
     border-radius: 4px;
     width: 300px;
-    font-size: 1.2rem;
-    background-color: lightblue;
-    opacity: .6;
+    font-size: 1.6rem;
+    background-color: skyblue;
+   /* opacity: .6;*/
     cursor: pointer;
     color: black;
 }
-.book-shelf {
+
+/*.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s ease;
+  }*/
+/*.book-shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, mninmax(300px, 1fr));
+    gap: 8px;
+    margin-top: 40px;
+  }*/
+
+  .book-shelf{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
     flex: 1;
     max-width: 1000;
@@ -143,3 +163,38 @@ label{
     left: 15%;
     margin: 2rem;
   }
+  .book{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 330px;
+      height: 430px;
+      font-size: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      line-height: 1.2;
+      padding: 20px;
+      gap: 20px;
+      background-color: var(--white);
+      margin-left: 10px;
+      color: var(--dark-green);
+  }
+
+  .book h2{
+      color:var(--dark-green);
+  }
+
+  .read-button,
+  .remove-button{
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 90%;
+      height: auto;
+      padding: 12px;
+  }
+
+  
