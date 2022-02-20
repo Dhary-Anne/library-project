@@ -9,7 +9,8 @@ const closeButton = document.querySelector('[data-close-button]')
 
 
 //data stuctures 
-let myLibrary = [];
+const myLibrary = [];
+//JSON.parse(localStorage.getItem('myLibrary')) || [];
 
 class Book {
     constructor(title, author, pages, read){
@@ -43,23 +44,14 @@ const addToLibrary = (i) => {
     readButton.classList.add('read-button')
 
     if(read == "Yes"){
-        readButton.textContent = "Read"
-        readButton.style.backgroundColor = '#AED591'
-    }else if (read == "Not yet"){
-        readButton.textContent = "Not Read"
-        readButton.style.backgroundColor = '#EA4C46'
-    }
-
-    //read button toggle
-
+        readButton.textContent = 'Read'
+        readButton.classList.add('read')
+    }else if(read == "Not yer"){
+    readButton.textContent = 'Not Read'
+    readButton.classList.add('not-read')}
+    
     readButton.addEventListener('click', () => {
-        if(readButton.textContent == "Read"){
-            readButton.textContent == "Not read"
-            readButton.style.backgroundColor = '#EA4C46'
-        }else if(readButton.textContent == "Not read"){
-            readButton.textContent == "Read"
-            readButton.style.backgroundColor = '#AED591'
-        }
+        readButton.classList.toggle('read')
     })
 
   
@@ -71,12 +63,14 @@ const addToLibrary = (i) => {
     removeButton.addEventListener('click', () => {
         bookshelf.removeChild(bookCard);
         myLibrary.splice(bookCard, 1)
+        //localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
     })
 
 
 
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+   // localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
 
     bookCard.appendChild(titleNode);
     bookCard.appendChild(authorNode);
@@ -112,23 +106,28 @@ const getUserInput = () => {
       
         const read = document.getElementById("book-read").value;
         let readButton = document.createElement("button");
-        readButton.classList.add('read-button')
+        readButton.classList.toggle('read-button')
 
         if(book.read == "Yes"){
-            readButton.textContent = "Read"
-            readButton.style.backgroundColor = '#AED591'
-        }else if (book.read == "Not yet"){
-            readButton.textContent = "Not Read"
-            readButton.style.backgroundColor = '#EA4C46'
-        }
+            readButton.textContent = 'Read'
+            readButton.classList.add('read')
+        }else  
+        readButton.textContent = 'Not Read'
+        readButton.classList.add('not-read')
+        
+        readButton.addEventListener('click', () => {
+            readButton.classList.toggle('read')
+        })
+    
 
         let removeButton = document.createElement = "button";
-        removeButton.classList.add("remove-button");
+        removeButton.classList.add('remove-button');
         removeButton.textContent = "Remove";
 
         removeButton.addEventListener('click', () => {
             bookshelf.removeChild(bookCard);
             myLibrary.splice(bookCard, 1)
+           // localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
         })
     
 
