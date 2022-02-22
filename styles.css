@@ -195,10 +195,10 @@ label{
       height: auto;
       padding: 13px;
   }
-  .read-button.read{
+.read{
       background-color: #AED591;
   }
-  .read-button.not-read{
+.not-read{
       background-color: #EA4C46;
   }
 

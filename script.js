@@ -1,3 +1,4 @@
+"use strict";
 //Get elements from HTML using DOM 
 const bookForm = document.querySelector('[data-book-form]')
 const addButton = document.querySelector('[data-add-button]')
@@ -9,9 +10,10 @@ const closeButton = document.querySelector('[data-close-button]')
 
 
 //data stuctures 
-const myLibrary = [];
-//JSON.parse(localStorage.getItem('myLibrary')) || [];
+let myLibrary = [];
 
+
+  
 class Book {
     constructor(title, author, pages, read){
         this.title = title;
@@ -20,6 +22,7 @@ class Book {
         this.read = read;
     }
 }
+
 
 
 const addToLibrary = (i) => {
@@ -46,13 +49,22 @@ const addToLibrary = (i) => {
     if(read == "Yes"){
         readButton.textContent = 'Read'
         readButton.classList.add('read')
-    }else if(read == "Not yer"){
+    }else {
     readButton.textContent = 'Not Read'
     readButton.classList.add('not-read')}
     
     readButton.addEventListener('click', () => {
-        readButton.classList.toggle('read')
+        console.log('clicked')
+        if(readButton.classList.contains('read')){
+            readButton.classList.replace('read', 'not-read')
+            readButton.textContent = 'Not Read'
+        }else if(readButton.classList.contains('not-read')){
+            readButton.classList.add('read')
+            readButton.textContent = "Read"
+            readButton.style.backgroundColor = '#AED591'
+        }
     })
+
 
   
     let removeButton = document.createElement("button");
@@ -63,14 +75,12 @@ const addToLibrary = (i) => {
     removeButton.addEventListener('click', () => {
         bookshelf.removeChild(bookCard);
         myLibrary.splice(bookCard, 1)
-        //localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
     })
 
 
 
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
-   // localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
 
     bookCard.appendChild(titleNode);
     bookCard.appendChild(authorNode);
@@ -116,18 +126,25 @@ const getUserInput = () => {
         readButton.classList.add('not-read')
         
         readButton.addEventListener('click', () => {
-            readButton.classList.toggle('read')
+            console.log('clicked')
+            if(readButton.classList.contains('read')){
+                readButton.classList.replace('read', 'not-read')
+                readButton.textContent = 'Not Read'
+            }else if(readButton.classList.contains('not-read')){
+                readButton.classList.add('read')
+                readButton.textContent = "Read"
+                readButton.style.backgroundColor = '#AED591'
+            }
         })
     
 
         let removeButton = document.createElement = "button";
-        removeButton.classList.add('remove-button');
+        removeButton.classList.add("remove-button");
         removeButton.textContent = "Remove";
 
         removeButton.addEventListener('click', () => {
             bookshelf.removeChild(bookCard);
             myLibrary.splice(bookCard, 1)
-           // localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
         })
     
 
